@@ -42,3 +42,30 @@
 .contact p{
     font-size: 10px;
 }
+
+.section-title{
+    color: #7D779D;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+
+.work-info,.education-info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.work-position,.degree{
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+.work-info span, .education-info span{
+    color: #7D779D;
+    font-weight: 700;
+}
+
+.description{
+    font-size: 11px;
+}

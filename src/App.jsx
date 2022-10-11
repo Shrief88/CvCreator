@@ -11,9 +11,30 @@ class App extends Component{
     super(props);
 
   this.state = {
-    personalData : {name:"",job:"",phone:"",email:"",state:"",description:""},
-    workingData : {company:"",position:"",startDate:"",endDate:"",description:""},
-    educationData : {university:"",startDate:"",endDate:"",description:""}
+    personalData : {
+      name:"Shrief Essam",
+      job:"Software Developer",
+      phone:"01099436442",
+      email:"shriefessam1999@gmail.come",
+      state:"Cario",
+      description:""
+    },
+
+    workingData : {
+      company:"A Software Company",
+      position:"Software Engineer",
+      startDate:"2018",
+      endDate:"2022",
+      description:""
+    },
+    
+    educationData : {
+      degree:"Computer science",
+      university:"Ain Shams",
+      startDate:"2017",
+      endDate:"2022",
+      description:""
+    }
   };  
 
   this.updatePersonalData = this.updatePersonalData.bind(this)
@@ -55,6 +76,7 @@ class App extends Component{
     }));
   }
 
+
   render(){
     return (
       <div className="App">
@@ -65,7 +87,7 @@ class App extends Component{
         </div>
         <div>
           <OutputForm personalData={this.state.personalData} workingData={this.state.workingData} 
-          educationData={this.educationData}/>
+          educationData={this.state.educationData}/>
         </div>
         
       </div>
