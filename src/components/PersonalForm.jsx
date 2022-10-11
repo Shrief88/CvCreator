@@ -14,7 +14,7 @@ class PersonalForm extends Component{
             <input type="text" name="phone" onChange={this.props.handleInput} value={formData.phone}/>
             <input type="text" name="email" onChange={this.props.handleInput} value={formData.email}/>
             <input type="text" name="state" onChange={this.props.handleInput} value={formData.state}/>
-            <textarea name="personalDescription" cols="10" rows="5" onChange={this.props.handleInput} 
+            <textarea name="description" cols="10" rows="5" onChange={this.props.handleInput} 
             value={formData.description} />
           </form>
         );
