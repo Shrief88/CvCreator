@@ -12,8 +12,8 @@ class App extends Component{
 
   this.state = {
     personalData : {name:"",job:"",phone:"",email:"",state:"",description:""},
-    workingData : {company:"",position:"",startData:"",endData:"",description:""},
-    educationData : {university:"",startData:"",endData:"",description:""}
+    workingData : {company:"",position:"",startDate:"",endDate:"",description:""},
+    educationData : {university:"",startDate:"",endDate:"",description:""}
   };  
 
   this.updatePersonalData = this.updatePersonalData.bind(this)

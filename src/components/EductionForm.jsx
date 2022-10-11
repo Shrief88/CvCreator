@@ -9,11 +9,13 @@ class EductionaForm extends Component{
         return (
           <form>
             <p>Eductiona Details</p>
-            <input type="text" name="university" onChange={this.props.handleInput} value={formData.university}/>
-            <input type="text" name="startData" onChange={this.props.handleInput} value={formData.startData}/>
-            <input type="text" name="endData" onChange={this.props.handleInput} value={formData.endData}/>
-            <textarea name="description" cols="10" rows="5" onChange={this.props.handleInput} 
-            value={formData.description} />
+            <input placeholder="university" type="text" name="university" onChange={this.props.handleInput} 
+            value={formData.university}/>
+            <input placeholder="start date" type="text" name="startDate" onChange={this.props.handleInput} 
+            value={formData.startDate}/>
+            <input type="text" placeholder="end date" name="endDate" onChange={this.props.handleInput} 
+            value={formData.endDate}/>
+            <textarea placeholder="description" name="description" cols="10" rows="5" onChange={this.props.handleInput} value={formData.description} />
           </form>
         );
     }

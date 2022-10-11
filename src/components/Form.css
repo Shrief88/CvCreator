@@ -9,3 +9,7 @@ form{
     gap: 10px;
     justify-content: end;
 }
+
+input,textarea{
+    padding-left: 5px;
+}

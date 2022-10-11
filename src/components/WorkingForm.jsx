@@ -8,11 +8,15 @@ class WorkingForm extends Component{
         return (
           <form>
             <p>Working Details</p>
-            <input type="text"name="company" onChange={this.props.handleInput}  value={formData.company}/>
-            <input type="text"name="postion" onChange={this.props.handleInput} value={formData.postion} />
-            <input type="text"name="startData" onChange={this.props.handleInput} value={formData.startData}/>
-            <input type="text" name="endData" onChange={this.props.handleInput} value={formData.endData}/>
-            <textarea name="description" cols="10" rows="5" onChange={this.props.handleInput} 
+            <input placeholder="company" type="text"name="company" onChange={this.props.handleInput}  
+            value={formData.company}/>
+            <input placeholder="position" type="text"name="postion" onChange={this.props.handleInput} 
+            value={formData.postion} />
+            <input placeholder="start date" type="text"name="startDate" onChange={this.props.handleInput} 
+            value={formData.startDate}/>
+            <input placeholder="end date" type="text" name="endDate" onChange={this.props.handleInput} 
+            value={formData.endDate}/>
+            <textarea placeholder="description" name="description" cols="10" rows="5" onChange={this.props.handleInput} 
             value={formData.description} />
           </form>
         );

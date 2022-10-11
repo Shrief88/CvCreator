@@ -4,7 +4,7 @@ class OutputForm extends Component{
     render(){
         return(
             <div>
-                <p>{this.props.personalData.name}</p>
+                <p>{this.props.workingData.company}</p>
                 <p>{this.props.personalData.job}</p>
                 <p>{this.props.personalData.email}</p>
                 <p>{this.props.personalData.phone}</p>
