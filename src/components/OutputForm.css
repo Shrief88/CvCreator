@@ -1,0 +1,44 @@
+.output{
+    padding: 20px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.personal-info{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px ;
+    border-bottom: 2px solid #81AEBB;
+}
+
+.name{
+    color: #195C70;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.job{
+    color: #9f9f9f;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+   
+}
+
+.contact div{
+    display: flex;
+    gap: 5px;
+}
+
+.contact p{
+    font-size: 10px;
+}

@@ -64,7 +64,8 @@ class App extends Component{
           <EductionaForm handleInput={this.updateEductionaData} formData={this.state.educationData}/>
         </div>
         <div>
-          <OutputForm personalData={this.state.personalData} workingData={this.state.workingData}/>
+          <OutputForm personalData={this.state.personalData} workingData={this.state.workingData} 
+          educationData={this.educationData}/>
         </div>
         
       </div>
