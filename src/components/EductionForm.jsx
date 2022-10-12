@@ -7,7 +7,7 @@ class EductionaForm extends Component{
     render() {
         const formData = this.props.formData;
         return (
-          <form>
+          <div className="section-form"> 
             <p className="section-input">Eductiona Details</p>
             <input placeholder="degree" type="text" name="degree" onChange={this.props.handleInput} 
             value={formData.degree}/>
@@ -18,7 +18,7 @@ class EductionaForm extends Component{
             <input type="text" placeholder="end date" name="endDate" onChange={this.props.handleInput} 
             value={formData.endDate}/>
             <textarea placeholder="description" name="description" cols="10" rows="5" onChange={this.props.handleInput} value={formData.description} />
-          </form>
+          </div>
         );
     }
 }  

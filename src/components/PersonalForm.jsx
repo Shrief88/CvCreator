@@ -6,7 +6,7 @@ class PersonalForm extends Component{
     render() {
         const formData = this.props.formData;
         return (
-          <form>
+          <div className="section-form">
             <p className="section-input">Personal Details</p>
             <input placeholder="name" type="text" name="name" onChange={this.props.handleInput} value={formData.name}/>
             <input placeholder="job" type="text" name="job" onChange={this.props.handleInput} value={formData.job} />
@@ -18,7 +18,7 @@ class PersonalForm extends Component{
             value={formData.state}/>
             <textarea placeholder="description" name="description" cols="10" rows="5" onChange={this.props.handleInput} 
             value={formData.description} />
-          </form>
+          </div>
         );
     }
 }  
