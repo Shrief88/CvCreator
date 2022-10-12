@@ -7,7 +7,7 @@ class WorkingForm extends Component{
       const formData = this.props.formData;
         return (
           <form>
-            <p>Working Details</p>
+            <p className="section-input">Working Details</p>
             <input placeholder="company" type="text" name="company" onChange={this.props.handleInput}  
             value={formData.company}/>
             <input placeholder="position" type="text" name="position" onChange={this.props.handleInput} 

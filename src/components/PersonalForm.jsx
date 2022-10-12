@@ -7,7 +7,7 @@ class PersonalForm extends Component{
         const formData = this.props.formData;
         return (
           <form>
-            <p>Personal Details</p>
+            <p className="section-input">Personal Details</p>
             <input placeholder="name" type="text" name="name" onChange={this.props.handleInput} value={formData.name}/>
             <input placeholder="job" type="text" name="job" onChange={this.props.handleInput} value={formData.job} />
             <input placeholder="phone" type="text" name="phone" onChange={this.props.handleInput}

@@ -39,20 +39,30 @@ class OutputForm extends Component{
 
                 <div>
                     <p className="section-title">WORK EXPERIENCE</p>
-                    <div className="work-info">
+                    <div className="section-info">
+                        
                         <p className="work-position">{workingData.position}</p>
-                        {workingData.startDate && workingData.endDate && 
-                        <p>{workingData.company} | <span>{workingData.startDate}-{workingData.endDate}</span></p>}
+                        <div>
+                           <p>{workingData.company}</p>
+                           {workingData.startDate && <p className="date">| {workingData.startDate} -</p>}
+                           {workingData.endDate && <p className="date">{workingData.endDate}</p>} 
+                        </div>
+                        
                     </div>
                     <p className="description">{workingData.description}</p>
                 </div>
 
                 <div className="work">
                     <p className="section-title">EDUCTAION</p>
-                    <div className="education-info">
+                    <div className="section-info">
                         <p className="degree">{educationData.degree}</p>
-                        <p>{educationData.university} | <span>{educationData.startDate}-{educationData.endDate}</span>
-                        </p>
+                        <div>
+                            <p>{educationData.university}</p>
+                            {educationData.startDate && <p className="date">| {educationData.startDate} -</p>}
+                            {educationData.endDate && <p className="date">{educationData.endDate}</p>} 
+                        </div>
+                        
+                    
                     </div>
                     <p className="description">{educationData.description}</p>
                 </div>

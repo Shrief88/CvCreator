@@ -50,10 +50,15 @@
 }
 
 
-.work-info,.education-info{
+.section-info{
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
+}
+
+.section-info div{
+    display: flex;
+    gap: 3px;
 }
 
 .work-position,.degree{
@@ -61,7 +66,7 @@
     letter-spacing: -0.2px;
 }
 
-.work-info span, .education-info span{
+.date{
     color: #7D779D;
     font-weight: 700;
 }
