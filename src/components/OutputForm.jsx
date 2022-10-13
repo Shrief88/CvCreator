@@ -13,12 +13,26 @@ class OutputForm extends Component{
         const workOutput = workData.map(item=>
             <div key={item.id}>
                 <div className="section-info">
-                <p className="work-position">{item.position}</p>
-                <div>
-                    <p>{item.company}</p>
-                    {item.startDate && <p className="date">| {item.startDate} -</p>}
-                    {item.endDate && <p className="date">{item.endDate}</p>} 
+                    <p className="work-position">{item.position}</p>
+                    <div>
+                        <p>{item.company}</p>
+                        {item.startDate && <p className="date">| {item.startDate} -</p>}
+                        {item.endDate && <p className="date">{item.endDate}</p>} 
+                    </div>
                 </div>
+                <p className="description">{item.description}</p>
+            </div>
+        )
+
+        const educationOuput= educationData.map(item=>
+            <div key={item.id}>
+                <div className="section-info">
+                    <p className="degree">{item.degree}</p>
+                    <div>
+                        <p>{item.university}</p>
+                        {item.startDate && <p className="date">| {item.startDate} -</p>}
+                        {item.endDate && <p className="date">{item.endDate}</p>} 
+                    </div>
                 </div>
                 <p className="description">{item.description}</p>
             </div>
@@ -34,23 +48,10 @@ class OutputForm extends Component{
                     {workOutput}
                 </div>
                 
-
                 <div>
-                    <p className="section-title">EDUCTAION</p>
-                    <div className="section-info">
-                        <p className="degree">{educationData.degree}</p>
-                        <div>
-                            <p>{educationData.university}</p>
-                            {educationData.startDate && <p className="date">| {educationData.startDate} -</p>}
-                            {educationData.endDate && <p className="date">{educationData.endDate}</p>} 
-                        </div>
-                        
-                    
-                    </div>
-                    <p className="description">{educationData.description}</p>
+                    {educationData.length >0 &&<p className="section-title">Education</p>}
+                    {educationOuput}
                 </div>
-
-
             </div>
         )    
             

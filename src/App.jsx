@@ -29,20 +29,24 @@ class App extends Component{
       description:""
     }],
     
-    educationData : {
+    educationData : [{
+      id:1,
       degree:"Computer science",
       university:"Ain Shams",
       startDate:"2017",
       endDate:"2022",
       description:""
-    }
+    }]
   };  
 
   this.updatePersonalData = this.updatePersonalData.bind(this)
-  this.updateworkData = this.updateworkData.bind(this)
-  this.addworkData = this.addworkData.bind(this)
-  this.updateEductionaData = this.updateEductionaData.bind(this)
+  this.updateWorkData = this.updateWorkData.bind(this)
+  this.addWorkData = this.addWorkData.bind(this)
   this.removeWorkData = this.removeWorkData.bind(this)
+  this.updateEductionaData = this.updateEductionaData.bind(this)
+  this.addEducationData = this.addEducationData.bind(this)
+  this.removeEducationData = this.removeEducationData.bind(this)
+  
     
   }
 
@@ -57,8 +61,8 @@ class App extends Component{
     }));
   }
 
-  addworkData(){
-    const newObject = {name:"",job:"",phone:"",email:"",state:"",description:"",id:this.state.workData.length+1};
+  addWorkData(){
+    const newObject = {company:"",position:"",startDate:"",endDate:"",description:"",id:this.state.workData.length+1};
     this.setState(prevState=>({
       workData : [...prevState.workData,newObject]
     }))
@@ -71,7 +75,7 @@ class App extends Component{
     }))
   }
 
-  updateworkData(event){
+  updateWorkData(event){
     const name = event.target.name;
     const value = event.target.value;
     const id = event.target.parentElement.id;
@@ -82,14 +86,29 @@ class App extends Component{
     }))
   }
 
+  addEducationData(){
+    const newObject = {degree:"",position:"",startDate:"",endDate:"",description:"",
+    id:this.state.educationData.length+1};
+    this.setState(prevState=>({
+      educationData : [...prevState.educationData,newObject]
+    }))
+  }
+
+  removeEducationData(event){
+    const id = event.target.parentElement.id;
+    this.setState(prevState=>({
+      educationData:prevState.educationData.filter(item=>item.id != id)
+    }))
+  }
+
   updateEductionaData(event){
     const name = event.target.name;
     const value = event.target.value;
+    const id = event.target.parentElement.id;
     this.setState(prevState=>({
-      educationData:{
-        ...prevState.educationData,
-        [name]: value,
-      }
+      educationData: prevState.educationData.map(item=>{
+        return item.id == id ? {...item,[name]:value} : item;
+      })
     }));
   }
 
@@ -102,16 +121,24 @@ class App extends Component{
           
           <WorkForm 
             deleteItem={this.removeWorkData} 
-            handleInput={this.updateworkData} 
+            handleInput={this.updateWorkData} 
             formData={this.state.workData} 
-            addItem={this.addworkData}
+            addItem={this.addWorkData}
           />
 
-          <EductionaForm handleInput={this.updateEductionaData} formData={this.state.educationData}/>
+          <EductionaForm
+            handleInput={this.updateEductionaData} 
+            formData={this.state.educationData}
+            addItem={this.addEducationData}
+            deleteItem={this.removeEducationData}
+          />
         </div>
         <div>
-          <OutputForm personalData={this.state.personalData} workData={this.state.workData} 
-          educationData={this.state.educationData}/>
+          <OutputForm 
+            personalData={this.state.personalData} 
+            workData={this.state.workData} 
+            educationData={this.state.educationData}
+          />
         </div>
         
       </div>
