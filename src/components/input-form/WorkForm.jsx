@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Form.css'
+import './input-form.css'
 
 function WorkForm(props){
 

@@ -1,13 +1,12 @@
-import React, { Component,useReducer,useState } from "react";
+import React, { useState } from "react";
 import './App.css'
-import PersonalForm from './components/PersonalForm'
-import OutputForm from "./components/OutputForm";
-import WorkForm from "./components/WorkForm";
-import EductionaForm from "./components/EductionForm";
+import PersonalForm from './components/input-form/PersonalForm'
+import OutputForm from "./components/output-form/OutputForm";
+import WorkForm from "./components/input-form/WorkForm";
+import EductionaForm from "./components/input-form/EductionForm";
 
 
 function App(){
- 
     const[personalData,setPersonalData] = useState({
         name:"Shrief Essam",
         job:"Software Developer",
@@ -40,7 +39,7 @@ function App(){
         const name = event.target.name;
         const value = event.target.value;
         setPersonalData(prevState=>({
-            ...prevState.personalData,
+            ...prevState,
             [name]: value,
         }));
     }
@@ -91,7 +90,7 @@ function App(){
 
     return (
       <div className="App">
-        <div className='form-input'>
+        <div className='input-form'>
           <PersonalForm handleInput={updatePersonalData} formData={personalData}/>
           
           <WorkForm 
