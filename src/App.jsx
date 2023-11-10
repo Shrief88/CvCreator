@@ -121,32 +121,29 @@ function App() {
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-6">
         <div>
           <div className="flex bg-white py-4 px-14 gap-6 rounded-2xl">
-            <div className="flex font-bold hover:bg-gray-100 rounded-lg px-8 py-2 gap-2">
+            <div className="flex hover:bg-gray-100 rounded-lg px-8 py-2 gap-2">
               <DeleteIcon style={{ fontSize: 20, color: "red" }} />
-              <p className="font-bold text-xl text-red-600">Clear Resume</p>
+              <p className="text-xl text-red-600">Clear Resume</p>
             </div>
-            <div className="flex font-bold hover:bg-gray-100 rounded-lg px-8 py-2 gap-2">
+            <div className="flex hover:bg-gray-100 rounded-lg px-8 py-2 gap-2">
               <ReplayIcon style={{ fontSize: 20 }} />
-              <p className="font-bold text-xl ">Load Example</p>
+              <p className="text-xl ">Load Example</p>
             </div>
           </div>
         </div>
 
-        <div>
+        <div className="flex flex-col gap-10">
           <div>
-            {/* <div>
-              <p className="text-">Personal Details</p>
-            </div> */}
             <PersonalForm
               handleInput={updatePersonalData}
               formData={personalData}
             />
           </div>
 
-          {/* <WorkForm
+        <WorkForm
           deleteItem={removeWorkData}
           handleInput={updateWorkData}
           formData={workData}
@@ -158,7 +155,7 @@ function App() {
           formData={educationData}
           addItem={addEducationData}
           deleteItem={removeEducationData}
-        /> */}
+        />
         </div>
       </div>
 
