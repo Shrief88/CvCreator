@@ -1,0 +1,25 @@
+.form-input{
+  background-color: #f3f4f6;
+  color: black;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  width: 100%;
+  padding: 0.625rem;
+  transition: border .25s,boxShadow .25s,
+}
+
+.form-input:focus{
+  boxShadow: 0 3px 15px rgba(59,131,246,.2);
+  border-color: rgb(59 130 246);
+  outline: none;
+}
+
+.form-label{
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: black;
+}

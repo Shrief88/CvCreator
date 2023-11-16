@@ -11,35 +11,13 @@ import ReplayIcon from "@mui/icons-material/Replay";
 
 function App() {
   const [personalData, setPersonalData] = useState({
-    name: "Shrief Essam",
-    job: "Software Developer",
-    phone: "01099436442",
-    email: "shriefessam1999@gmail.come",
-    state: "Cario",
-    description: "",
+    name: "",
+    email: "",
+    job: "",
+    phone: "",
+    address: "",
+    summary: "",
   });
-
-  const [workData, setWorkData] = useState([
-    {
-      id: 1,
-      company: "A Software Company",
-      position: "Software Engineer",
-      startDate: "2018",
-      endDate: "2022",
-      description: "",
-    },
-  ]);
-
-  const [educationData, setEduacationData] = useState([
-    {
-      id: 1,
-      degree: "Computer science",
-      university: "Ain Shams",
-      startDate: "2017",
-      endDate: "2022",
-      description: "",
-    },
-  ]);
 
   const updatePersonalData = (event) => {
     const name = event.target.name;
@@ -50,61 +28,83 @@ function App() {
     }));
   };
 
-  const updateWorkData = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const id = event.target.parentElement.id;
-    setWorkData((prevArray) =>
-      prevArray.map((item) =>
-        item.id == id ? { ...item, [name]: value } : item
-      )
-    );
-  };
+  // const [workData, setWorkData] = useState([
+  //   {
+  //     id: 1,
+  //     company: "A Software Company",
+  //     position: "Software Engineer",
+  //     startDate: "2018",
+  //     endDate: "2022",
+  //     description: "",
+  //   },
+  // ]);
 
-  const addWorkData = () => {
-    const newObject = {
-      company: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-      id: workData.length + 1,
-    };
-    setWorkData((prevState) => [...prevState, newObject]);
-  };
+  // const [educationData, setEduacationData] = useState([
+  //   {
+  //     id: 1,
+  //     degree: "Computer science",
+  //     university: "Ain Shams",
+  //     startDate: "2017",
+  //     endDate: "2022",
+  //     description: "",
+  //   },
+  // ]);
 
-  const removeWorkData = (event) => {
-    const id = event.target.parentElement.id;
-    setWorkData((prevArray) => prevArray.filter((item) => item.id != id));
-  };
+  // const updateWorkData = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   const id = event.target.parentElement.id;
+  //   setWorkData((prevArray) =>
+  //     prevArray.map((item) =>
+  //       item.id == id ? { ...item, [name]: value } : item
+  //     )
+  //   );
+  // };
 
-  const updateEductionaData = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const id = event.target.parentElement.id;
-    setEduacationData((prevArray) =>
-      prevArray.map((item) =>
-        item.id == id ? { ...item, [name]: value } : item
-      )
-    );
-  };
+  // const addWorkData = () => {
+  //   const newObject = {
+  //     company: "",
+  //     position: "",
+  //     startDate: "",
+  //     endDate: "",
+  //     description: "",
+  //     id: workData.length + 1,
+  //   };
+  //   setWorkData((prevState) => [...prevState, newObject]);
+  // };
 
-  const addEducationData = () => {
-    const newObject = {
-      degree: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-      id: educationData.length + 1,
-    };
-    setEduacationData((prevState) => [...prevState, newObject]);
-  };
+  // const removeWorkData = (event) => {
+  //   const id = event.target.parentElement.id;
+  //   setWorkData((prevArray) => prevArray.filter((item) => item.id != id));
+  // };
 
-  const removeEducationData = (event) => {
-    const id = event.target.parentElement.id;
-    setEduacationData((prevState) => prevState.filter((item) => item.id != id));
-  };
+  // const updateEductionaData = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   const id = event.target.parentElement.id;
+  //   setEduacationData((prevArray) =>
+  //     prevArray.map((item) =>
+  //       item.id == id ? { ...item, [name]: value } : item
+  //     )
+  //   );
+  // };
+
+  // const addEducationData = () => {
+  //   const newObject = {
+  //     degree: "",
+  //     position: "",
+  //     startDate: "",
+  //     endDate: "",
+  //     description: "",
+  //     id: educationData.length + 1,
+  //   };
+  //   setEduacationData((prevState) => [...prevState, newObject]);
+  // };
+
+  // const removeEducationData = (event) => {
+  //   const id = event.target.parentElement.id;
+  //   setEduacationData((prevState) => prevState.filter((item) => item.id != id));
+  // };
 
   return (
     <div className="flex justify-center p-20 bg-gray-100 gap-6 font-bold">
@@ -138,12 +138,12 @@ function App() {
         <div className="flex flex-col gap-10">
           <div>
             <PersonalForm
-              handleInput={updatePersonalData}
-              formData={personalData}
+              handleChange={updatePersonalData}
+              personalData={personalData}
             />
           </div>
 
-        <WorkForm
+          {/* <WorkForm
           deleteItem={removeWorkData}
           handleInput={updateWorkData}
           formData={workData}
@@ -155,15 +155,15 @@ function App() {
           formData={educationData}
           addItem={addEducationData}
           deleteItem={removeEducationData}
-        />
+        /> */}
         </div>
       </div>
 
       <div>
         <OutputForm
           personalData={personalData}
-          workData={workData}
-          educationData={educationData}
+          // workData={workData}
+          // educationData={educationData}
         />
       </div>
     </div>
