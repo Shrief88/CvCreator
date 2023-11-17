@@ -11,7 +11,7 @@ function PersonalForm({ personalData, handleChange }) {
   };
 
   return (
-    <form className="p-10 bg-white rounded-md">
+    <form className="p-10 pb-0 bg-white rounded-md">
       <FormTitle
         text="Personal Details"
         icon={<PersonRoundedIcon style={{ fontSize: 30 }} />}
@@ -19,11 +19,8 @@ function PersonalForm({ personalData, handleChange }) {
         isFormVisible={isFormVisible}
       />
       {isFormVisible && (
-        <div className="mt-7 flex flex-col gap-2">
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Full Name
-            </label>
+        <div className="flex flex-col gap-3 mb-4">
+          <div>
             <input
               type="text"
               id="name"
@@ -35,9 +32,6 @@ function PersonalForm({ personalData, handleChange }) {
             />
           </div>
           <div>
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
             <input
               type="email"
               id="email"
@@ -50,9 +44,6 @@ function PersonalForm({ personalData, handleChange }) {
           </div>
 
           <div>
-            <label htmlFor="phone" className="form-label">
-              Phone Number
-            </label>
             <input
               type="tel"
               id="phone"
@@ -65,9 +56,6 @@ function PersonalForm({ personalData, handleChange }) {
           </div>
 
           <div>
-            <label htmlFor="job" className="form-label">
-              Current Job
-            </label>
             <input
               type="text"
               id="job"
@@ -80,9 +68,6 @@ function PersonalForm({ personalData, handleChange }) {
           </div>
 
           <div>
-            <label htmlFor="address" className="form-label">
-              Address
-            </label>
             <input
               type="text"
               id="address"
@@ -95,9 +80,6 @@ function PersonalForm({ personalData, handleChange }) {
           </div>
 
           <div>
-            <label htmlFor="summary" className="form-label">
-              Summary
-            </label>
             <textarea
               id="summary"
               placeholder="Give a summary about yourself"

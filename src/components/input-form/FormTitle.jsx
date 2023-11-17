@@ -5,7 +5,7 @@ const FormTitle = ({ text, icon, isFormVisible,toggleFormVisibility}) => {
  
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center mb-10">
       <div className="flex gap-3 items-center">
         {icon}
         <p className="text-3xl">{text}</p>
