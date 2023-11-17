@@ -13,7 +13,7 @@ function EductionaForm(props) {
 
   const forms =
     formData.length === 0 ? (
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-4">
         <button
           className="p-2 bg-green-600 text-white rounded-xl text-xl w-24"
           onClick={props.addItem}
@@ -61,14 +61,14 @@ function EductionaForm(props) {
             value={item.endDate}
           />
           <textarea
-            placeholder="description"
-            name="description"
+            placeholder="summary"
+            name="summary"
             cols="10"
             rows="5"
             className="form-input"
-            id="description"
+            id="summary"
             onChange={props.handleInput}
-            value={item.description}
+            value={item.summary}
           />
 
           <div className="flex justify-end gap-3 mt-2">

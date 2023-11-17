@@ -77,7 +77,7 @@ function App() {
       position: "",
       startDate: "",
       endDate: "",
-      description: "",
+      summary: "",
     },
   ]);
 
@@ -99,7 +99,7 @@ function App() {
       position: "",
       startDate: "",
       endDate: "",
-      description: "",
+      summary: "",
     };
     setWorkData((prevState) => [...prevState, newObject]);
   };
