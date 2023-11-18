@@ -47,12 +47,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  width: 100%;
 }
+
+
 
 body {
   min-width: 320px;
   min-height: 100vh;
+}
+
+body > #root > div {
+  min-height: 100vh;
+  height: 100%;
 }
 
 p,body{

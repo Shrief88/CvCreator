@@ -1,32 +1,27 @@
 import React, { Component } from "react";
-import { useState } from "react";
 import FormTitle from "./FormTitle";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import "./form.css";
 
-function PersonalForm({ personalData, handleChange }) {
-  const [isFormVisible, setFormVisible] = useState(false);
-  const toggleFormVisibility = () => {
-    setFormVisible(!isFormVisible);
-  };
-
+function PersonalForm({ personalData, handleChange,toggleFormVisiblity, isFormVisible }) {
   return (
     <form className="p-10 pb-0 bg-white rounded-md">
       <FormTitle
         text="Personal Details"
         icon={<PersonRoundedIcon style={{ fontSize: 30 }} />}
-        toggleFormVisibility={toggleFormVisibility}
+        toggleFormVisiblity={toggleFormVisiblity}
         isFormVisible={isFormVisible}
+        formNumber = {0}
       />
       {isFormVisible && (
-        <div className="flex flex-col gap-3 mb-4">
+        <div className="flex flex-col gap-3 mb-4 font-light">
           <div>
             <input
               type="text"
               id="name"
               name="name"
               className="form-input"
-              placeholder="First and last name"
+              placeholder="First and Last Name"
               onChange={handleChange}
               value={personalData.name}
             />
@@ -37,7 +32,7 @@ function PersonalForm({ personalData, handleChange }) {
               id="email"
               name="email"
               className="form-input"
-              placeholder="Enter email"
+              placeholder="Email"
               onChange={handleChange}
               value={personalData.email}
             />
@@ -49,7 +44,7 @@ function PersonalForm({ personalData, handleChange }) {
               id="phone"
               name="phone"
               className="form-input"
-              placeholder="Enter phone number"
+              placeholder="Phone Number"
               onChange={handleChange}
               value={personalData.phone}
             />
@@ -61,7 +56,7 @@ function PersonalForm({ personalData, handleChange }) {
               id="job"
               name="job"
               className="form-input"
-              placeholder="Enter your job"
+              placeholder="Job"
               onChange={handleChange}
               value={personalData.job}
             />
@@ -73,7 +68,7 @@ function PersonalForm({ personalData, handleChange }) {
               id="address"
               name="address"
               className="form-input"
-              placeholder="Enter address"
+              placeholder="Address"
               onChange={handleChange}
               value={personalData.address}
             />
@@ -82,7 +77,7 @@ function PersonalForm({ personalData, handleChange }) {
           <div>
             <textarea
               id="summary"
-              placeholder="Give a summary about yourself"
+              placeholder="Give a Summary About Yourself"
               name="summary"
               cols="10"
               rows="5"

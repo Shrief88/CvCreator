@@ -6,10 +6,10 @@ import PersonalSection from "./PersonalSection";
 function OutputForm(props){
    
     const personalData = props.personalData;
-    const workData = props.workData;
+    const experienceData = props.experienceData;
     const educationData = props.educationData;
 
-    const workOutput = workData.map(item=>
+    const experienceOutput = experienceData.map(item=>
         <div key={item.id}>
             <div className="section-info">
                 <p className="work-position">{item.position}</p>
@@ -19,7 +19,7 @@ function OutputForm(props){
                     {item.endDate && <p className="date">{item.endDate}</p>} 
                 </div>
             </div>
-            <p className="description">{item.description}</p>
+            <p className="description">{item.summary}</p>
         </div>
     )
 
@@ -33,7 +33,7 @@ function OutputForm(props){
                     {item.endDate && <p className="date">{item.endDate}</p>} 
                 </div>
             </div>
-            <p className="description">{item.description}</p>
+            <p className="description">{item.summary}</p>
         </div>
     )
 
@@ -41,10 +41,10 @@ function OutputForm(props){
     return(
         <div className="output">
             <PersonalSection personalData={personalData}/>
-            <p className="description">{personalData.description}</p>
+            <p className="description">{personalData.summary}</p>
             <div>
-                {workData.length >0 &&<p className="section-title">WORK EXPERIENCE</p>}
-                {workOutput}
+                {experienceData.length >0 &&<p className="section-title">WORK EXPERIENCE</p>}
+                {experienceOutput}
             </div>
             
             <div>

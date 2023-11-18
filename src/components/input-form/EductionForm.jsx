@@ -1,14 +1,9 @@
 import React, { Component } from "react";
-import { useState } from "react";
 import FormTitle from "./FormTitle";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import "./form.css";
 
 function EductionaForm(props) {
-  const [isFormVisible, setFormVisible] = useState(false);
-  const toggleFormVisibility = () => {
-    setFormVisible(!isFormVisible);
-  };
   const formData = props.formData;
 
   const forms =
@@ -23,9 +18,9 @@ function EductionaForm(props) {
       </div>
     ) : (
       formData.map((item, index) => (
-        <form className="flex flex-col gap-3 mb-4" id={item.id} key={item.id}>
+        <form className="flex flex-col gap-3 mb-4 font-light" id={item.id} key={item.id}>
           <input
-            placeholder="degree"
+            placeholder="Degree"
             type="text"
             name="degree"
             className="form-input"
@@ -34,7 +29,7 @@ function EductionaForm(props) {
             value={item.degree}
           />
           <input
-            placeholder="university"
+            placeholder="University"
             type="text"
             name="university"
             className="form-input"
@@ -42,29 +37,32 @@ function EductionaForm(props) {
             onChange={props.handleInput}
             value={item.university}
           />
-          <input
-            placeholder="start date"
-            type="text"
-            name="startDate"
-            className="form-input"
-            id="startDate"
-            onChange={props.handleInput}
-            value={item.startDate}
-          />
-          <input
-            type="text"
-            placeholder="end date"
-            name="endDate"
-            className="form-input"
-            id="endDate"
-            onChange={props.handleInput}
-            value={item.endDate}
-          />
+          <div className="flex gap-2">
+            <input
+              placeholder="Start Date"
+              type="text"
+              name="startDate"
+              className="form-input"
+              id="startDate"
+              onChange={props.handleInput}
+              value={item.startDate}
+            />
+            <input
+              type="text"
+              placeholder="End Date"
+              name="endDate"
+              className="form-input"
+              id="endDate"
+              onChange={props.handleInput}
+              value={item.endDate}
+            />
+          </div>
+
           <textarea
-            placeholder="summary"
+            placeholder="Summary"
             name="summary"
             cols="10"
-            rows="5"
+            rows="3"
             className="form-input"
             id="summary"
             onChange={props.handleInput}
@@ -98,10 +96,11 @@ function EductionaForm(props) {
       <FormTitle
         text="Education"
         icon={<SchoolRoundedIcon style={{ fontSize: 28 }} />}
-        toggleFormVisibility={toggleFormVisibility}
-        isFormVisible={isFormVisible}
+        toggleFormVisiblity={props.toggleFormVisiblity}
+        isFormVisible={props.isFormVisible}
+        formNumber = {1}
       />
-      {isFormVisible && <div>{forms}</div>}
+      {props.isFormVisible && <div>{forms}</div>}
     </div>
   );
 }

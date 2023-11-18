@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-import { useState } from "react";
 import FormTitle from "./FormTitle";
-import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
-import "./form.css"
+import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
+import "./form.css";
 
-function WorkForm(props) {
-  const [isFormVisible, setFormVisible] = useState(false);
-  const toggleFormVisibility = () => {
-    setFormVisible(!isFormVisible);
-  };
-
+function ExperienceForm(props) {
   const formData = props.formData;
 
   const forms =
@@ -24,9 +18,13 @@ function WorkForm(props) {
       </div>
     ) : (
       formData.map((item, index) => (
-        <form className="flex flex-col gap-3 mb-4" id={item.id} key={item.id}>
+        <form
+          className="flex flex-col gap-3 mb-4 font-light"
+          id={item.id}
+          key={item.id}
+        >
           <input
-            placeholder="company"
+            placeholder="Company"
             type="text"
             name="company"
             className="form-input"
@@ -43,24 +41,27 @@ function WorkForm(props) {
             onChange={props.handleInput}
             value={item.position}
           />
-          <input
-            placeholder="start date"
-            type="text"
-            name="startDate"
-            className="form-input"
-            id="startDate"
-            onChange={props.handleInput}
-            value={item.startDate}
-          />
-          <input
-            type="text"
-            placeholder="end date"
-            name="endDate"
-            className="form-input"
-            id="endDate"
-            onChange={props.handleInput}
-            value={item.endDate}
-          />
+          <div className="flex">
+            <input
+              placeholder="start date"
+              type="text"
+              name="startDate"
+              className="form-input"
+              id="startDate"
+              onChange={props.handleInput}
+              value={item.startDate}
+            />
+            <input
+              type="text"
+              placeholder="end date"
+              name="endDate"
+              className="form-input"
+              id="endDate"
+              onChange={props.handleInput}
+              value={item.endDate}
+            />
+          </div>
+
           <textarea
             placeholder="summary"
             name="summary"
@@ -98,13 +99,14 @@ function WorkForm(props) {
     <div className="p-10 pb-0 bg-white rounded-md">
       <FormTitle
         text="Experience"
-        icon = {<WorkRoundedIcon style={{fontSize : 28}}/>}
-        toggleFormVisibility = {toggleFormVisibility}
-        isFormVisible={isFormVisible}
+        icon={<WorkRoundedIcon style={{ fontSize: 28 }} />}
+        toggleFormVisiblity={props.toggleFormVisiblity}
+        isFormVisible={props.isFormVisible}
+        formNumber = {2}
       />
-      {isFormVisible && <div>{forms}</div>}
+      {props.isFormVisible && <div>{forms}</div>}
     </div>
   );
 }
 
-export default WorkForm;
+export default ExperienceForm;

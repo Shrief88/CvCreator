@@ -7,7 +7,7 @@
   border-width: 2px;
   width: 100%;
   padding: 0.625rem;
-  transition: border .25s,boxShadow .25s,
+  transition: border .3s,boxShadow .3s,
 }
 
 .form-input:focus{
