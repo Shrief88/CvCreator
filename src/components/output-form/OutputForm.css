@@ -1,4 +1,4 @@
-.output{
+/* .output{
     padding: 20px;
     border: 1px solid;
     display: flex;
@@ -47,6 +47,7 @@
     color: #7D779D;
     font-weight: 700;
     margin-bottom: 15px;
+    font-size: 20px;
 }
 
 
@@ -59,6 +60,7 @@
 .section-info div{
     display: flex;
     gap: 3px;
+    font-size: 16;
 }
 
 .work-position,.degree{
@@ -72,5 +74,5 @@
 }
 
 .description{
-    font-size: 11px;
-}
+    font-size: 16px;
+} */
