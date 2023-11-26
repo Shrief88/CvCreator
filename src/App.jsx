@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import PersonalForm from "./components/input-form/PersonalForm";
 import OutputForm from "./components/output-form/OutputForm";
 import ExperienceForm from "./components/input-form/experienceForm";
 import EductionaForm from "./components/input-form/EductionForm";
-import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
-import EditIcon from "@mui/icons-material/Edit";
 import FormHeader from "./components/FormHeader";
+import { useReactToPrint } from "react-to-print";
 
 const emptyPersonalData = {
   name: "",
@@ -44,6 +43,12 @@ function App() {
   const [experienceData, setExperienceData] = useState(emptyExperienceData);
   // 0 personal Details form , 1 education Details Form , 2 Experience Details form
   const [formVisiblity, setFormVisiblity] = useState([false, false, false]);
+
+  const componentRef = useRef(null);
+  const generatePDF = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: `${personalData.name} Resume`
+  });
 
   const updatePersonalData = (event) => {
     const name = event.target.name;
@@ -140,7 +145,7 @@ function App() {
       {
         id: 1,
         degree: "Bachelor Degree of Engineering",
-        university: "Ain Shams University",
+        university: "Ain Shams Uّّniversity",
         startDate: "2017",
         endDate: "2022",
         description: "",
@@ -167,36 +172,38 @@ function App() {
     setExperienceData(emptyExperienceData);
   };
 
+ 
+
   return (
     <div className="grid grid-col-1 lg:grid-cols-2 lg:p-20 p-3 bg-gray-100 gap-6 font-bold h-full">
       <div className="flex flex-col gap-6">
-            <FormHeader loadExample={loadExample} clearResume={clearResume} />
-            <div className="flex flex-col gap-6">
-              <PersonalForm
-                handleChange={updatePersonalData}
-                personalData={personalData}
-                toggleFormVisiblity={toggleFormVisiblity}
-                isFormVisible={formVisiblity[0]}
-              />
+        <FormHeader loadExample={loadExample} clearResume={clearResume} />
+        <div className="flex flex-col gap-6">
+          <PersonalForm
+            handleChange={updatePersonalData}
+            personalData={personalData}
+            toggleFormVisiblity={toggleFormVisiblity}
+            isFormVisible={formVisiblity[0]}
+          />
 
-              <EductionaForm
-                handleInput={updateEducationData}
-                formData={educationData}
-                addItem={addEducationData}
-                deleteItem={removeEducationData}
-                toggleFormVisiblity={toggleFormVisiblity}
-                isFormVisible={formVisiblity[1]}
-              />
+          <EductionaForm
+            handleInput={updateEducationData}
+            formData={educationData}
+            addItem={addEducationData}
+            deleteItem={removeEducationData}
+            toggleFormVisiblity={toggleFormVisiblity}
+            isFormVisible={formVisiblity[1]}
+          />
 
-              <ExperienceForm
-                deleteItem={removeExperienceData}
-                handleInput={updateExperienceData}
-                formData={experienceData}
-                addItem={addExperienceData}
-                toggleFormVisiblity={toggleFormVisiblity}
-                isFormVisible={formVisiblity[2]}
-              />
-            </div>
+          <ExperienceForm
+            deleteItem={removeExperienceData}
+            handleInput={updateExperienceData}
+            formData={experienceData}
+            addItem={addExperienceData}
+            toggleFormVisiblity={toggleFormVisiblity}
+            isFormVisible={formVisiblity[2]}
+          />
+        </div>
       </div>
 
       <div>
@@ -204,7 +211,17 @@ function App() {
           personalData={personalData}
           experienceData={experienceData}
           educationData={educationData}
+          reference = {componentRef}
         />
+        <div className="flex justify-center mt-3">
+          <button
+            className="bg-red-600 text-white p-3 text-lg rounded"
+            onClick={generatePDF}
+            type="button"
+          >
+            Export PDF
+          </button>
+        </div>
       </div>
     </div>
   );

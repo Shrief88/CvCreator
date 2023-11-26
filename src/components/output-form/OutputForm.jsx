@@ -2,6 +2,7 @@ import React from "react";
 import "./OutputForm.css";
 import PersonalSection from "./PersonalSection";
 
+
 function OutputForm(props) {
   const personalData = props.personalData;
   const experienceData = props.experienceData;
@@ -44,7 +45,7 @@ function OutputForm(props) {
   ));
 
   return (
-    <div className="bg-white">
+    <div className="bg-white" ref={props.reference}>
       <PersonalSection personalData={personalData} />
       <div className="p-14">
         <div className=" max-w-4xl mx-auto pb-6">
