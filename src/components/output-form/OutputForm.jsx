@@ -13,7 +13,7 @@ function OutputForm(props) {
       <div className="flex gap-20 text-xl font-[500] pt-5">
         <div className="flex flex-col">
           <div className="flex">
-            {item.startDate && <p> {item.startDate} -</p>}
+            {item.startDate && <p>{item.startDate}-</p>}
             {item.endDate && <p>{item.endDate}</p>}
           </div>
           <p>{item.company}</p>
@@ -31,7 +31,7 @@ function OutputForm(props) {
       <div className="flex gap-20 text-xl font-[500] pt-5">
         <div className="flex flex-col">
           <div className="flex">
-            {item.startDate && <p> {item.startDate} -</p>}
+            {item.startDate && <p>{item.startDate}-</p>}
             {item.endDate && <p>{item.endDate}</p>}
           </div>
           <p>{item.university}</p>
@@ -45,7 +45,7 @@ function OutputForm(props) {
   ));
 
   return (
-    <div className="bg-white" ref={props.reference}>
+    <div className="bg-white break-words" ref={props.reference}>
       <PersonalSection personalData={personalData} />
       <div className="p-14">
         <div className=" max-w-4xl mx-auto pb-6">

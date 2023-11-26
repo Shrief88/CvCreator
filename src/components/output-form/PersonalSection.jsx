@@ -7,10 +7,10 @@ import PlaceIcon from "@mui/icons-material/Place";
 function PersonalSection(props) {
   const personalData = props.personalData;
   return (
-    <div className="bg-[#0E374E] text-white p-10">
+    <div className="bg-[#0E374E] text-white p-10 overflow-hidden">
       <p className="text-center text-6xl mb-6">{personalData.name}</p>
 
-      <div className="flex justify-center gap-7 text-xl">
+      <div className="flex justify-center gap-7 text-xl flex-wrap">
         {personalData.phone && (
           <div className="flex gap-2">
             <PhoneIcon />
