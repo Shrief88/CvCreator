@@ -1,45 +1,25 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import PersonalForm from "./components/input-form/PersonalForm";
 import OutputForm from "./components/output-form/OutputForm";
 import ExperienceForm from "./components/input-form/experienceForm";
 import EductionaForm from "./components/input-form/EductionForm";
 import FormHeader from "./components/FormHeader";
 import { useReactToPrint } from "react-to-print";
-
-const emptyPersonalData = {
-  name: "",
-  email: "",
-  job: "",
-  phone: "",
-  address: "",
-  summary: "",
-};
-
-const emptyeducationData = [
-  {
-    id: 1,
-    degree: "",
-    university: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-  },
-];
-
-const emptyExperienceData = [
-  {
-    id: 1,
-    company: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-    summary: "",
-  },
-];
+import { updateDate, removeData, addData } from "./utils/dataHelper";
+import {
+  emptyPersonalData,
+  emptyEducationData,
+  emptyExperienceData,
+} from "./utils/dataConstants";
+import {
+  personalDataExample,
+  eduactionDataExample,
+  experienceDataExample,
+} from "./utils/dataExamples";
 
 function App() {
   const [personalData, setPersonalData] = useState(emptyPersonalData);
-  const [educationData, setEducationData] = useState(emptyeducationData);
+  const [educationData, setEducationData] = useState(emptyEducationData);
   const [experienceData, setExperienceData] = useState(emptyExperienceData);
   // 0 personal Details form , 1 education Details Form , 2 Experience Details form
   const [formVisiblity, setFormVisiblity] = useState([false, false, false]);
@@ -47,79 +27,35 @@ function App() {
   const componentRef = useRef(null);
   const generatePDF = useReactToPrint({
     content: () => componentRef.current,
-    documentTitle: `${personalData.name} Resume`
+    documentTitle: `${personalData.name} Resume`,
   });
 
   const updatePersonalData = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setPersonalData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    updateDate(setPersonalData, event);
   };
 
   const updateEducationData = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const id = Number(event.target.closest("form").id);
-
-    setEducationData((prevArray) =>
-      prevArray.map((item) =>
-        item.id === id ? { ...item, [name]: value } : item
-      )
-    );
+    updateDate(setEducationData, event);
   };
 
   const addEducationData = () => {
-    const newObject = {
-      id:
-        educationData.length === 0
-          ? 1
-          : educationData[educationData.length - 1].id + 1,
-      degree: "",
-      university: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-    };
-    setEducationData((prevState) => [...prevState, newObject]);
+    addData(setEducationData, educationData, emptyEducationData);
   };
 
   const removeEducationData = (event) => {
-    const id = Number(event.target.closest("form").id);
-    setEducationData((prevState) => prevState.filter((item) => item.id != id));
+    removeData(setEducationData, event);
   };
 
   const updateExperienceData = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const id = Number(event.target.closest("form").id);
-    setExperienceData((prevArray) =>
-      prevArray.map((item) =>
-        item.id === id ? { ...item, [name]: value } : item
-      )
-    );
+    updateDate(setExperienceData, event);
   };
 
   const addExperienceData = () => {
-    const newObject = {
-      id:
-        experienceData.length === 0
-          ? 1
-          : experienceData[experienceData.length - 1].id + 1,
-      company: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-      summary: "",
-    };
-    setExperienceData((prevState) => [...prevState, newObject]);
+    addData(setExperienceData, experienceData, emptyExperienceData);
   };
 
   const removeExperienceData = (event) => {
-    const id = Number(event.target.closest("form").id);
-    setExperienceData((prevArray) => prevArray.filter((item) => item.id != id));
+    removeData(setEducationData, event);
   };
 
   const toggleFormVisiblity = (formNumber) => {
@@ -131,48 +67,17 @@ function App() {
   };
 
   const loadExample = () => {
-    setPersonalData({
-      name: "Shrief Essam",
-      email: "shriefessam1999@gmail.com",
-      job: "Software Developer",
-      phone: "01099436442",
-      address: "Cairo",
-      summary:
-        "Motivated Computer Software Engineer, committed to working both independently and as part of an engineering team",
-    });
-
-    setEducationData([
-      {
-        id: 1,
-        degree: "Bachelor Degree of Engineering",
-        university: "Ain Shams Uّّniversity",
-        startDate: "2017",
-        endDate: "2022",
-        description: "",
-      },
-    ]);
-
-    setExperienceData([
-      {
-        id: 1,
-        company: "Software Company",
-        position: "Software Developer",
-        startDate: "2022",
-        endDate: "2023",
-        summary: "I was responsible of maintain the company software products",
-      },
-    ]);
-
+    setPersonalData(personalDataExample);
+    setEducationData(eduactionDataExample);
+    setExperienceData(experienceDataExample);
     setFormVisiblity([true, true, true]);
   };
 
   const clearResume = () => {
     setPersonalData(emptyPersonalData);
-    setEducationData(emptyeducationData);
+    setEducationData(emptyEducationData);
     setExperienceData(emptyExperienceData);
   };
-
- 
 
   return (
     <div className="grid grid-col-1 lg:grid-cols-2 lg:p-20 p-3 bg-gray-100 gap-6 font-bold h-full">
@@ -211,7 +116,7 @@ function App() {
           personalData={personalData}
           experienceData={experienceData}
           educationData={educationData}
-          reference = {componentRef}
+          reference={componentRef}
         />
         <div className="flex justify-center mt-3">
           <button
